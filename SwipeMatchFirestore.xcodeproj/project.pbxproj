@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		BE01EBBD2233A17D007AE803 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01EBBC2233A17D007AE803 /* AppDelegate.swift */; };
-		BE01EBBF2233A17D007AE803 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01EBBE2233A17D007AE803 /* ViewController.swift */; };
+		BE01EBBF2233A17D007AE803 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01EBBE2233A17D007AE803 /* HomeController.swift */; };
 		BE01EBC22233A17D007AE803 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE01EBC02233A17D007AE803 /* Main.storyboard */; };
 		BE01EBC42233A17F007AE803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE01EBC32233A17F007AE803 /* Assets.xcassets */; };
 		BE01EBC72233A17F007AE803 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE01EBC52233A17F007AE803 /* LaunchScreen.storyboard */; };
 		BE01EBD02233ABD6007AE803 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01EBCF2233ABD6007AE803 /* Extensions+UIView.swift */; };
+		BE0F18722233D20F00072B99 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F18712233D20F00072B99 /* User.swift */; };
 		BE59B7B62233B54E00D837E7 /* HomeBottomControlsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59B7B52233B54E00D837E7 /* HomeBottomControlsStackView.swift */; };
 		BE59B7B82233B89600D837E7 /* TopNavigationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59B7B72233B89600D837E7 /* TopNavigationStackView.swift */; };
 		BE59B7BB2233BF8C00D837E7 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59B7BA2233BF8C00D837E7 /* CardView.swift */; };
@@ -21,12 +22,13 @@
 /* Begin PBXFileReference section */
 		BE01EBB92233A17D007AE803 /* SwipeMatchFirestore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeMatchFirestore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE01EBBC2233A17D007AE803 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BE01EBBE2233A17D007AE803 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BE01EBBE2233A17D007AE803 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		BE01EBC12233A17D007AE803 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE01EBC32233A17F007AE803 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE01EBC62233A17F007AE803 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE01EBC82233A17F007AE803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE01EBCF2233ABD6007AE803 /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
+		BE0F18712233D20F00072B99 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BE59B7B52233B54E00D837E7 /* HomeBottomControlsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomControlsStackView.swift; sourceTree = "<group>"; };
 		BE59B7B72233B89600D837E7 /* TopNavigationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNavigationStackView.swift; sourceTree = "<group>"; };
 		BE59B7BA2233BF8C00D837E7 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -62,10 +64,11 @@
 		BE01EBBB2233A17D007AE803 /* SwipeMatchFirestore */ = {
 			isa = PBXGroup;
 			children = (
+				BE0F18702233D20800072B99 /* Model */,
 				BE59B7B42233B53700D837E7 /* Views */,
 				BE01EBCE2233A35B007AE803 /* Extensions */,
 				BE01EBBC2233A17D007AE803 /* AppDelegate.swift */,
-				BE01EBBE2233A17D007AE803 /* ViewController.swift */,
+				BE01EBBE2233A17D007AE803 /* HomeController.swift */,
 				BE59B7B92233BB7100D837E7 /* IBs */,
 				BE01EBC32233A17F007AE803 /* Assets.xcassets */,
 				BE01EBC82233A17F007AE803 /* Info.plist */,
@@ -79,6 +82,14 @@
 				BE01EBCF2233ABD6007AE803 /* Extensions+UIView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BE0F18702233D20800072B99 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE0F18712233D20F00072B99 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BE59B7B42233B53700D837E7 /* Views */ = {
@@ -171,12 +182,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE01EBBF2233A17D007AE803 /* ViewController.swift in Sources */,
+				BE01EBBF2233A17D007AE803 /* HomeController.swift in Sources */,
 				BE59B7BB2233BF8C00D837E7 /* CardView.swift in Sources */,
 				BE59B7B62233B54E00D837E7 /* HomeBottomControlsStackView.swift in Sources */,
 				BE01EBBD2233A17D007AE803 /* AppDelegate.swift in Sources */,
 				BE01EBD02233ABD6007AE803 /* Extensions+UIView.swift in Sources */,
 				BE59B7B82233B89600D837E7 /* TopNavigationStackView.swift in Sources */,
+				BE0F18722233D20F00072B99 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeController.swift
 //  SwipeMatchFirestore
 //
 //  Created by Юрий Истомин on 09/03/2019.
@@ -8,11 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeController: UIViewController {
   
   let topStackView = TopNavigationStackView()
   let cardsDeckView = UIView()
   let buttonsStackView = HomeBottomControlsStackView()
+  
+  let users = [
+    User(name: "Yura", age: 20, profession: "iOS Developer", imageName: "ava"),
+    User(name: "Polina", age: 21, profession: "UX/UI Designer", imageName: "polina")
+  ]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -39,8 +44,18 @@ class ViewController: UIViewController {
   }
   
   fileprivate func setupCards() {
-    let cardView = CardView(frame: .zero)
-    cardsDeckView.addSubview(cardView)
-    cardView.fillSuperview()
+    users.forEach { (user) in
+      let cardView = CardView(frame: .zero)
+      cardView.imageView.image = UIImage(named: user.imageName)
+      
+      let attributedText = NSMutableAttributedString(string: user.name, attributes: [.font: UIFont.systemFont(ofSize: 32, weight: .heavy)])
+      attributedText.append(NSAttributedString(string: "  \(user.age)", attributes: [.font: UIFont.systemFont(ofSize: 24, weight: .regular)]))
+      attributedText.append(NSAttributedString(string: "\n\(user.profession)", attributes: [.font: UIFont.systemFont(ofSize: 20, weight: .regular)]))
+      
+      cardView.informationLabel.attributedText = attributedText
+      
+      cardsDeckView.addSubview(cardView)
+      cardView.fillSuperview()
+    }
   }
 }
