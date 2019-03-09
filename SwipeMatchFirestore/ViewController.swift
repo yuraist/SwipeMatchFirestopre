@@ -34,6 +34,8 @@ class ViewController: UIViewController {
     
     overallStackView.isLayoutMarginsRelativeArrangement = true
     overallStackView.layoutMargins = .init(top: 0, left: 12, bottom: 0, right: 12)
+    
+    overallStackView.bringSubviewToFront(cardsDeckView)
   }
   
   fileprivate func setupCards() {
