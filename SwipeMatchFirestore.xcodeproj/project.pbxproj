@@ -12,6 +12,7 @@
 		BE01EBC22233A17D007AE803 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE01EBC02233A17D007AE803 /* Main.storyboard */; };
 		BE01EBC42233A17F007AE803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE01EBC32233A17F007AE803 /* Assets.xcassets */; };
 		BE01EBC72233A17F007AE803 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE01EBC52233A17F007AE803 /* LaunchScreen.storyboard */; };
+		BE01EBD02233ABD6007AE803 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01EBCF2233ABD6007AE803 /* Extensions+UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		BE01EBC32233A17F007AE803 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE01EBC62233A17F007AE803 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE01EBC82233A17F007AE803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE01EBCF2233ABD6007AE803 /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		BE01EBBB2233A17D007AE803 /* SwipeMatchFirestore */ = {
 			isa = PBXGroup;
 			children = (
+				BE01EBCE2233A35B007AE803 /* Extensions */,
 				BE01EBBC2233A17D007AE803 /* AppDelegate.swift */,
 				BE01EBBE2233A17D007AE803 /* ViewController.swift */,
 				BE01EBC02233A17D007AE803 /* Main.storyboard */,
@@ -62,6 +65,14 @@
 				BE01EBC82233A17F007AE803 /* Info.plist */,
 			);
 			path = SwipeMatchFirestore;
+			sourceTree = "<group>";
+		};
+		BE01EBCE2233A35B007AE803 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BE01EBCF2233ABD6007AE803 /* Extensions+UIView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +148,7 @@
 			files = (
 				BE01EBBF2233A17D007AE803 /* ViewController.swift in Sources */,
 				BE01EBBD2233A17D007AE803 /* AppDelegate.swift in Sources */,
+				BE01EBD02233ABD6007AE803 /* Extensions+UIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +297,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N2HCJ99WYH;
 				INFOPLIST_FILE = SwipeMatchFirestore/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -292,7 +305,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.treedo.SwipeMatchFirestore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -303,6 +316,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N2HCJ99WYH;
 				INFOPLIST_FILE = SwipeMatchFirestore/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,7 +324,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.treedo.SwipeMatchFirestore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
