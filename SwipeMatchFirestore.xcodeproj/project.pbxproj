@@ -13,6 +13,8 @@
 		BE01EBC42233A17F007AE803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE01EBC32233A17F007AE803 /* Assets.xcassets */; };
 		BE01EBC72233A17F007AE803 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE01EBC52233A17F007AE803 /* LaunchScreen.storyboard */; };
 		BE01EBD02233ABD6007AE803 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01EBCF2233ABD6007AE803 /* Extensions+UIView.swift */; };
+		BE59B7B62233B54E00D837E7 /* HomeBottomControlsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59B7B52233B54E00D837E7 /* HomeBottomControlsStackView.swift */; };
+		BE59B7B82233B89600D837E7 /* TopNavigationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59B7B72233B89600D837E7 /* TopNavigationStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		BE01EBC62233A17F007AE803 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE01EBC82233A17F007AE803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE01EBCF2233ABD6007AE803 /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
+		BE59B7B52233B54E00D837E7 /* HomeBottomControlsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomControlsStackView.swift; sourceTree = "<group>"; };
+		BE59B7B72233B89600D837E7 /* TopNavigationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNavigationStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +60,12 @@
 		BE01EBBB2233A17D007AE803 /* SwipeMatchFirestore */ = {
 			isa = PBXGroup;
 			children = (
+				BE59B7B42233B53700D837E7 /* Views */,
 				BE01EBCE2233A35B007AE803 /* Extensions */,
 				BE01EBBC2233A17D007AE803 /* AppDelegate.swift */,
 				BE01EBBE2233A17D007AE803 /* ViewController.swift */,
-				BE01EBC02233A17D007AE803 /* Main.storyboard */,
+				BE59B7B92233BB7100D837E7 /* IBs */,
 				BE01EBC32233A17F007AE803 /* Assets.xcassets */,
-				BE01EBC52233A17F007AE803 /* LaunchScreen.storyboard */,
 				BE01EBC82233A17F007AE803 /* Info.plist */,
 			);
 			path = SwipeMatchFirestore;
@@ -73,6 +77,24 @@
 				BE01EBCF2233ABD6007AE803 /* Extensions+UIView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BE59B7B42233B53700D837E7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BE59B7B52233B54E00D837E7 /* HomeBottomControlsStackView.swift */,
+				BE59B7B72233B89600D837E7 /* TopNavigationStackView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BE59B7B92233BB7100D837E7 /* IBs */ = {
+			isa = PBXGroup;
+			children = (
+				BE01EBC02233A17D007AE803 /* Main.storyboard */,
+				BE01EBC52233A17F007AE803 /* LaunchScreen.storyboard */,
+			);
+			path = IBs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,8 +169,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE01EBBF2233A17D007AE803 /* ViewController.swift in Sources */,
+				BE59B7B62233B54E00D837E7 /* HomeBottomControlsStackView.swift in Sources */,
 				BE01EBBD2233A17D007AE803 /* AppDelegate.swift in Sources */,
 				BE01EBD02233ABD6007AE803 /* Extensions+UIView.swift in Sources */,
+				BE59B7B82233B89600D837E7 /* TopNavigationStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
