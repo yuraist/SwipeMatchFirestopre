@@ -14,6 +14,7 @@
 		BE01EBC72233A17F007AE803 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE01EBC52233A17F007AE803 /* LaunchScreen.storyboard */; };
 		BE01EBD02233ABD6007AE803 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE01EBCF2233ABD6007AE803 /* Extensions+UIView.swift */; };
 		BE0F18722233D20F00072B99 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F18712233D20F00072B99 /* User.swift */; };
+		BE0F18762233E52400072B99 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F18752233E52400072B99 /* CardViewModel.swift */; };
 		BE59B7B62233B54E00D837E7 /* HomeBottomControlsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59B7B52233B54E00D837E7 /* HomeBottomControlsStackView.swift */; };
 		BE59B7B82233B89600D837E7 /* TopNavigationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59B7B72233B89600D837E7 /* TopNavigationStackView.swift */; };
 		BE59B7BB2233BF8C00D837E7 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59B7BA2233BF8C00D837E7 /* CardView.swift */; };
@@ -29,6 +30,7 @@
 		BE01EBC82233A17F007AE803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE01EBCF2233ABD6007AE803 /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
 		BE0F18712233D20F00072B99 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BE0F18752233E52400072B99 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		BE59B7B52233B54E00D837E7 /* HomeBottomControlsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomControlsStackView.swift; sourceTree = "<group>"; };
 		BE59B7B72233B89600D837E7 /* TopNavigationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNavigationStackView.swift; sourceTree = "<group>"; };
 		BE59B7BA2233BF8C00D837E7 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -64,11 +66,12 @@
 		BE01EBBB2233A17D007AE803 /* SwipeMatchFirestore */ = {
 			isa = PBXGroup;
 			children = (
+				BE0F18742233E51700072B99 /* ViewModels */,
 				BE0F18702233D20800072B99 /* Model */,
 				BE59B7B42233B53700D837E7 /* Views */,
+				BE0F18732233E4C400072B99 /* Controllers */,
 				BE01EBCE2233A35B007AE803 /* Extensions */,
 				BE01EBBC2233A17D007AE803 /* AppDelegate.swift */,
-				BE01EBBE2233A17D007AE803 /* HomeController.swift */,
 				BE59B7B92233BB7100D837E7 /* IBs */,
 				BE01EBC32233A17F007AE803 /* Assets.xcassets */,
 				BE01EBC82233A17F007AE803 /* Info.plist */,
@@ -90,6 +93,22 @@
 				BE0F18712233D20F00072B99 /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BE0F18732233E4C400072B99 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BE01EBBE2233A17D007AE803 /* HomeController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BE0F18742233E51700072B99 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BE0F18752233E52400072B99 /* CardViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		BE59B7B42233B53700D837E7 /* Views */ = {
@@ -186,6 +205,7 @@
 				BE59B7BB2233BF8C00D837E7 /* CardView.swift in Sources */,
 				BE59B7B62233B54E00D837E7 /* HomeBottomControlsStackView.swift in Sources */,
 				BE01EBBD2233A17D007AE803 /* AppDelegate.swift in Sources */,
+				BE0F18762233E52400072B99 /* CardViewModel.swift in Sources */,
 				BE01EBD02233ABD6007AE803 /* Extensions+UIView.swift in Sources */,
 				BE59B7B82233B89600D837E7 /* TopNavigationStackView.swift in Sources */,
 				BE0F18722233D20F00072B99 /* User.swift in Sources */,
