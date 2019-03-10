@@ -18,6 +18,7 @@ class CardView: UIView {
     }
   }
   
+  // Encapsulation
   fileprivate let imageView: UIImageView = {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "ava"))
     imageView.contentMode = .scaleAspectFill
@@ -25,6 +26,7 @@ class CardView: UIView {
   }()
   
   fileprivate let informationLabel = UILabel()
+  fileprivate let gradientLayer = CAGradientLayer()
   
   // Configurations
   fileprivate let threshold: CGFloat = 100
@@ -50,8 +52,6 @@ class CardView: UIView {
     addGestureRecognizer(panGesture)
   }
   
-  let gradientLayer = CAGradientLayer()
-  
   fileprivate func setupGradientLayer() {
     gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
     gradientLayer.locations = [0.5, 1.1]
@@ -65,6 +65,10 @@ class CardView: UIView {
   
   @objc fileprivate func handlePan(gesture: UIPanGestureRecognizer) {
     switch gesture.state {
+    case .began:
+      superview?.subviews.forEach({ (subview) in
+        subview.layer.removeAllAnimations()
+      })
     case .changed:
       handleChanged(gesture)
     case .ended:
