@@ -38,6 +38,8 @@ class CardView: UIView {
     addSubview(imageView)
     imageView.fillSuperview()
     
+    setupGradientLayer()
+    
     addSubview(informationLabel)
     informationLabel.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 16, bottom: 16, right: 16))
     informationLabel.numberOfLines = 0
@@ -46,6 +48,19 @@ class CardView: UIView {
     
     let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
     addGestureRecognizer(panGesture)
+  }
+  
+  let gradientLayer = CAGradientLayer()
+  
+  fileprivate func setupGradientLayer() {
+    gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+    gradientLayer.locations = [0.5, 1.1]
+    
+    layer.addSublayer(gradientLayer)
+  }
+  
+  override func layoutSubviews() {
+    gradientLayer.frame = frame
   }
   
   @objc fileprivate func handlePan(gesture: UIPanGestureRecognizer) {
