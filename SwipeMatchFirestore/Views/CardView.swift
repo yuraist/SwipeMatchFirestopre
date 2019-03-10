@@ -10,13 +10,21 @@ import UIKit
 
 class CardView: UIView {
   
-  let imageView: UIImageView = {
+  var cardViewModel: CardViewModel! {
+    didSet {
+      imageView.image = UIImage(named: cardViewModel.imageName)
+      informationLabel.attributedText = cardViewModel.attributedString
+      informationLabel.textAlignment = cardViewModel.textAlignment
+    }
+  }
+  
+  fileprivate let imageView: UIImageView = {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "ava"))
     imageView.contentMode = .scaleAspectFill
     return imageView
   }()
   
-  let informationLabel = UILabel()
+  fileprivate let informationLabel = UILabel()
   
   // Configurations
   fileprivate let threshold: CGFloat = 100
