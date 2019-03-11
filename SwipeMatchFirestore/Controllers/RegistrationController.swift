@@ -26,6 +26,7 @@ class RegistrationController: UIViewController {
     let tf = CustomTextField(padding: 24)
     tf.placeholder = "Enter full name"
     tf.backgroundColor = .white
+    tf.addTarget(self, action: #selector(handleTextChange(textField:)), for: .editingChanged)
     return tf
   }()
   
@@ -34,6 +35,7 @@ class RegistrationController: UIViewController {
     tf.placeholder = "Enter email"
     tf.keyboardType = .emailAddress
     tf.backgroundColor = .white
+    tf.addTarget(self, action: #selector(handleTextChange(textField:)), for: .editingChanged)
     return tf
   }()
   
@@ -42,8 +44,19 @@ class RegistrationController: UIViewController {
     tf.placeholder = "Enter password"
     tf.isSecureTextEntry = true
     tf.backgroundColor = .white
+    tf.addTarget(self, action: #selector(handleTextChange(textField:)), for: .editingChanged)
     return tf
   }()
+  
+  @objc fileprivate func handleTextChange(textField: UITextField) {
+    if textField == fullNameTextField {
+      registrationViewModel.fullName = textField.text
+    } else if textField == emailTextField {
+      registrationViewModel.email = textField.text
+    } else {
+      registrationViewModel.password = textField.text
+    }
+  }
   
   let registerButton: UIButton = {
     let button = UIButton(type: .system)
@@ -51,6 +64,11 @@ class RegistrationController: UIViewController {
     button.setTitleColor(.white, for: .normal)
     button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
     button.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+    
+    // Disable button
+    button.alpha = 0.5
+    button.isEnabled = false
+    
     button.heightAnchor.constraint(equalToConstant: 44).isActive = true
     button.layer.cornerRadius = 22
     return button
@@ -83,6 +101,7 @@ class RegistrationController: UIViewController {
     setupLayout()
     setupNotificationObservers()
     setupTapGesture()
+    setupRegistrationViewModelObserver()
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -152,4 +171,17 @@ class RegistrationController: UIViewController {
     view.endEditing(true)
   }
   
+  
+  let registrationViewModel = RegistrationViewModel()
+  fileprivate func setupRegistrationViewModelObserver() {
+    registrationViewModel.isFormValidObserver = { [unowned self] (isFormValid) in
+      self.registerButton.isEnabled = isFormValid
+      
+      if isFormValid {
+        self.registerButton.alpha = 1
+      } else {
+        self.registerButton.alpha = 0.5
+      }
+    }
+  }
 }
