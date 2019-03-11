@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import JGProgressHUD
 
 class RegistrationController: UIViewController {
   
@@ -71,8 +73,32 @@ class RegistrationController: UIViewController {
     
     button.heightAnchor.constraint(equalToConstant: 44).isActive = true
     button.layer.cornerRadius = 22
+    
+    button.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
     return button
   }()
+  
+  @objc fileprivate func handleRegister() {
+    handleTapDismiss()
+    
+    guard let email = emailTextField.text else { return }
+    guard let password = passwordTextField.text else { return }
+    
+    Auth.auth().createUser(withEmail: email, password: password) { (res, err) in
+      if let err = err {
+        self.showHUDWithError(error: err)
+        return
+      }
+    }
+  }
+  
+  fileprivate func showHUDWithError(error: Error) {
+    let hud = JGProgressHUD(style: .dark)
+    hud.textLabel.text = "Failed registration"
+    hud.detailTextLabel.text = error.localizedDescription
+    hud.show(in: self.view)
+    hud.dismiss(afterDelay: 2)
+  }
   
   let gradientLayer = CAGradientLayer()
   
