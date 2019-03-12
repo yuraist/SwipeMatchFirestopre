@@ -10,6 +10,17 @@ import UIKit
 import Firebase
 import JGProgressHUD
 
+extension RegistrationController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    registrationViewModel.bindableImage.value = info[.originalImage] as? UIImage
+    dismiss(animated: true, completion: nil)
+  }
+  
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    dismiss(animated: true, completion: nil)
+  }
+}
+
 class RegistrationController: UIViewController {
   
   // UI Components
@@ -21,8 +32,17 @@ class RegistrationController: UIViewController {
     button.setTitleColor(.black, for: .normal)
     button.heightAnchor.constraint(equalToConstant: 275).isActive = true
     button.layer.cornerRadius = 16
+    button.clipsToBounds = true
+    button.imageView?.contentMode = .scaleAspectFill
+    button.addTarget(self, action: #selector(handleSelectPhoto), for: .touchUpInside)
     return button
   }()
+  
+  @objc func handleSelectPhoto() {
+    let imagePickerController = UIImagePickerController()
+    imagePickerController.delegate = self
+    present(imagePickerController, animated: true)
+  }
   
   let fullNameTextField: CustomTextField = {
     let tf = CustomTextField(padding: 24)
@@ -86,6 +106,7 @@ class RegistrationController: UIViewController {
     
     Auth.auth().createUser(withEmail: email, password: password) { (res, err) in
       if let err = err {
+        print(err.localizedDescription)
         self.showHUDWithError(error: err)
         return
       }
@@ -125,11 +146,15 @@ class RegistrationController: UIViewController {
     
     setupGradientLayer()
     setupLayout()
-    setupNotificationObservers()
+    
     setupTapGesture()
     setupRegistrationViewModelObserver()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    setupNotificationObservers()
+  }
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     NotificationCenter.default.removeObserver(self)
@@ -197,10 +222,14 @@ class RegistrationController: UIViewController {
     view.endEditing(true)
   }
   
+  // MARK: - Registration View Model
   
   let registrationViewModel = RegistrationViewModel()
+  
   fileprivate func setupRegistrationViewModelObserver() {
-    registrationViewModel.isFormValidObserver = { [unowned self] (isFormValid) in
+    registrationViewModel.bindableIsFormValid.bind { [unowned self] (isFormValid) in
+      guard let isFormValid = isFormValid else { return }
+      
       self.registerButton.isEnabled = isFormValid
       
       if isFormValid {
@@ -208,6 +237,10 @@ class RegistrationController: UIViewController {
       } else {
         self.registerButton.alpha = 0.5
       }
+    }
+    
+    registrationViewModel.bindableImage.bind { [unowned self] img in
+      self.selectPhotoButton.setImage(img?.withRenderingMode(.alwaysOriginal), for: .normal)
     }
   }
 }
